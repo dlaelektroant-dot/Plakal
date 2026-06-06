@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0;background:black;overflow:hidden;">
+
+<img id="jumpscare" src="jumpscare1.png"
+     style="display:none;width:100vw;height:100vh;object-fit:cover;">
+
+<audio id="sound" src="jsc.mp3"></audio>
+
+<script>
+setTimeout(() => {
+    document.getElementById("jumpscare").style.display = "block";
+    document.getElementById("sound").play();
+}, 3000);
+</script>
+
+</body>
+</html>
