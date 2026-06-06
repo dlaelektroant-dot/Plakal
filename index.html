@@ -1,11 +1,77 @@
-<img id="jumpscare" src="jumpscare1.png"
-     style="display:none;width:100vw;height:100vh;object-fit:cover;">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>płakał</title>
 
+<style>
+body{
+    background:black;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    margin-top:120px;
+}
+
+button{
+    font-size:30px;
+    padding:20px 40px;
+    cursor:pointer;
+}
+
+#tekst{
+    margin-top:30px;
+    font-size:24px;
+}
+
+#jumpscare{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    z-index:9999;
+}
+</style>
+</head>
+<body>
+
+<h1>płakał</h1>
+
+<button onclick="start()">
+ZAGRAJ W GRE O PŁAKAŁ
+</button>
+
+<div id="tekst"></div>
+
+<img id="jumpscare" src="jumpscare1.png">
 <audio id="sound" src="jsc.mp3"></audio>
 
 <script>
-setTimeout(() => {
-    document.getElementById("jumpscare").style.display = "block";
-    document.getElementById("sound").play();
-}, 3000);
+function start() {
+    document.querySelector("button").disabled = true;
+
+    let tekst = document.getElementById("tekst");
+
+    tekst.innerHTML = "Ładowanie płakała...";
+
+    setTimeout(() => {
+        tekst.innerHTML = "Szukanie płakała...";
+    }, 2000);
+
+    setTimeout(() => {
+        tekst.innerHTML = "Płakał został znaleziony!";
+    }, 4000);
+
+    setTimeout(() => {
+        document.getElementById("jumpscare").style.display = "block";
+        document.getElementById("sound").play();
+    }, 6000);
+}
 </script>
+
+</body>
+</html>
